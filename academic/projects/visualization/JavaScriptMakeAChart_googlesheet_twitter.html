@@ -1,0 +1,55 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<!--     <title>
+      Google Visualization API Sample
+    </title> -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['corechart']});
+    </script>
+    <script type="text/javascript">
+   // var visualization;
+
+    function drawVisualization() {
+      // To see the data that this visualization uses, browse to
+      // https://docs.google.com/spreadsheet/pub?key=0AuJ1wNXyqnrwdGdrZG90X1BHbF9tXzFyNHNvUkNBZEE&output=html
+      var query = new google.visualization.Query(
+          'https://docs.google.com/spreadsheet/pub?key=0AuJ1wNXyqnrwdGdrZG90X1BHbF9tXzFyNHNvUkNBZEE&output=html&range=A1:C'); //A(COUNT(B1:B)-7):B//sheet.getRange(1,1,sheet.getMaxRows(),2)
+    
+      // Send the query with a callback function.
+      query.send(handleQueryResponse);
+    }
+    
+    function handleQueryResponse(response) {
+      if (response.isError()) {
+        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        return;
+      }
+    
+      var data = response.getDataTable();
+      var options = {
+          title: 'Weight Trending',
+          //hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 53},
+		  //legend: { position: 'bottom' },
+		  backgroundColor: '#fafafa'
+        };
+
+      var visualization = new google.visualization.LineChart(document.getElementById('visualization'));
+      visualization.draw(data, options);
+    }
+    google.setOnLoadCallback(drawVisualization);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="visualization" style="height: 300px; width: 400px;"></div>
+  </body>
+</html>
+​

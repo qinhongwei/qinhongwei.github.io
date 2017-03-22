@@ -1,0 +1,718 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>如何防止hexo渲染某个文件夹 | Hongwei Qin&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hongwei Qin">
+    
+
+    
+    <meta name="description" content="问题
+我在学术主页里放了一些 paper 相关的 project 网页。因为 hexo 编译的时候，会把 source 文件夹下的所有 md 文件和 html 文件都给渲染了。结果就把我的一个 html 文件给渲染出错了，导致关键的可视化图表没显示出来。这个问题隐藏地很深，费了好一番功夫才找到原因。怎么解决呢？最直接的方法就是每次编译后，把这个不想更改的文件夹手动 copy 到 public 文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何防止hexo渲染某个文件夹">
+<meta property="og:url" content="http://qinhongwei.com/2014/11/18/如何防止hexo渲染某个文件夹/">
+<meta property="og:site_name" content="Hongwei Qin's Blog">
+<meta property="og:description" content="问题
+我在学术主页里放了一些 paper 相关的 project 网页。因为 hexo 编译的时候，会把 source 文件夹下的所有 md 文件和 html 文件都给渲染了。结果就把我的一个 html 文件给渲染出错了，导致关键的可视化图表没显示出来。这个问题隐藏地很深，费了好一番功夫才找到原因。怎么解决呢？最直接的方法就是每次编译后，把这个不想更改的文件夹手动 copy 到 public 文件">
+<meta property="og:image" content="/image/IMG_1179.JPG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何防止hexo渲染某个文件夹">
+<meta name="twitter:description" content="问题
+我在学术主页里放了一些 paper 相关的 project 网页。因为 hexo 编译的时候，会把 source 文件夹下的所有 md 文件和 html 文件都给渲染了。结果就把我的一个 html 文件给渲染出错了，导致关键的可视化图表没显示出来。这个问题隐藏地很深，费了好一番功夫才找到原因。怎么解决呢？最直接的方法就是每次编译后，把这个不想更改的文件夹手动 copy 到 public 文件">
+<meta name="twitter:creator" content="@hongweiqin">
+
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hongwei Qin&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Hongwei Qin&#39;s Blog" title="Hongwei Qin&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hongwei Qin&#39;s Blog">Hongwei Qin&#39;s Blog</a></h1>
+				<h2 class="blog-motto">Share with the World</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/academic">Academic</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/messages">Messages</a></li>
+					
+						<li><a href="/今天吃什么？">今天吃什么？</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/11/18/如何防止hexo渲染某个文件夹/" title="如何防止hexo渲染某个文件夹" itemprop="url">如何防止hexo渲染某个文件夹</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://qinhongwei.com/academic" title="Hongwei Qin" target="_blank" itemprop="author">Hongwei Qin</a>
+		
+  <p class="article-time">
+    <time datetime="2014-11-18T08:55:08.000Z" itemprop="datePublished"> Published Nov 18 2014</time>
+	 Updated:<time datetime="2016-06-16T15:45:21.000Z" itemprop="dateModified">Jun 16 2016</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方案 A"><span class="toc-number">2.1.</span> <span class="toc-text">方案 A</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案 B"><span class="toc-number">2.2.</span> <span class="toc-text">方案 B</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案 C"><span class="toc-number">2.3.</span> <span class="toc-text">方案 C</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Install"><span class="toc-number">2.3.1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Options"><span class="toc-number">2.3.2.</span> <span class="toc-text">Options</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">2.3.3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置插件"><span class="toc-number">2.3.4.</span> <span class="toc-text">配置插件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结：方案选择"><span class="toc-number">3.</span> <span class="toc-text">总结：方案选择</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="问题">问题</h2>
+<p>我在学术主页里放了一些 paper 相关的 project 网页。因为 hexo 编译的时候，会把 <code>source</code> 文件夹下的所有 <code>md</code> 文件和 <code>html</code> 文件都给渲染了。结果就把我的一个 <code>html</code> 文件给渲染出错了，导致关键的可视化图表没显示出来。这个问题隐藏地很深，费了好一番功夫才找到原因。<br>怎么解决呢？最直接的方法就是每次编译后，把这个不想更改的文件夹手动 copy 到 public 文件夹下了。因为常常要编译，即使可以用命令行来完成 copy，也还是太麻烦了。拖了好久，今天我要立志解决这个问题！<br>经过一番检索，发现官方解决方案是用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="header">layout: false</span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+<p>来防止单个 <code>html</code> 被渲染，但是，经测试，只是在一定程度上减少了渲染，但是还是有渲染！不行！</p>
+<h2 id="解决方案">解决方案</h2>
+<p>再经过一番更深的检索，发现如下方法：</p>
+<h3 id="方案 A">方案 A</h3>
+<blockquote>
+<p><a href="http://riny.net/2014/move-blog-to-github/" target="_blank" rel="external">http://riny.net/2014/move-blog-to-github/</a><br>修改 hexo 的源码</p>
+</blockquote>
+<p><strong>原作者测试用的 hexo 版本是 2.5.2</strong><br>具体方法：<br>在 node 安装目录 <code>\node_modules\hexo\lib\plugins\generator</code> 下有个 <code>page.js</code> 文件 (ps: 测试的系统是<code>win7 64</code> 位)，找到以下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!layout || layout === <span class="string">'false'</span>){</div><div class="line">  route.<span class="keyword">set</span>(item.path, <span class="function"><span class="keyword">function</span><span class="params">(fn)</span></span>{</div><div class="line">    fn(<span class="literal">null</span>, item.content);</div><div class="line">  });</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">  render(item.path, [layout, <span class="string">'page'</span>, <span class="string">'post'</span>, <span class="string">'index'</span>], item);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>将其修改为：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> notRender = [<span class="string">'test1'</span>, <span class="string">'test2'</span>]; <span class="comment">// 设置不被 render 的目录</span></div><div class="line"><span class="keyword">var</span> dir = path.substring(<span class="number">0</span>, path.indexOf(<span class="string">'/'</span>));</div><div class="line"></div><div class="line"><span class="keyword">if</span> (!layout || layout === <span class="string">'false'</span> || notRender.indexOf(dir) &gt; -<span class="number">1</span>){</div><div class="line">  route.<span class="keyword">set</span>(item.path, <span class="function"><span class="keyword">function</span><span class="params">(fn)</span></span>{</div><div class="line">    fn(<span class="literal">null</span>, item.content);</div><div class="line">  });</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">  render(item.path, [layout, <span class="string">'page'</span>, <span class="string">'post'</span>, <span class="string">'index'</span>], item);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>notRender 中的 <code>test1</code>, <code>test2</code> 目录即为不需要被 render 的目录，保存后，重新执行 <code>hexo g</code> 命令就会发现 <code>source</code> 中的 <code>test1</code> 和<code>test2</code>目录下的 <code>html</code> 文件没有被 render.</p>
+<p><strong>提示：其实在我的系统中，这个文件在 <code>C:\Users\Yourname\AppData\Roaming\npm\node_modules\hexo\lib\plugins\generator</code> 下。我都不记得当初安装的时候是怎么安装到这个文件夹下的了。</strong></p>
+<h3 id="方案 B">方案 B</h3>
+<blockquote>
+<p><a href="http://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="external">http://xuanwo.org/2014/08/14/hexo-usual-problem/</a><br>放在主题的 <code>source</code> 目录下。</p>
+</blockquote>
+<p>利用主题的 <code>source</code> 目录，也就是 <code>themes/themes-name/source</code>。因为这个文件夹里面的所有文件都会被复制到网站的根目录中去，正好满足我们的需求。<br><strong> 其实这个解决方案可以这么理解，那些不需要编译的页面是我们想要直接展示给用户的，这跟主题的目标是一样的。</strong></p>
+<h3 id="方案 C">方案 C</h3>
+<blockquote>
+<p><a href="https://github.com/f111fei/hexo-processor-copyassets" target="_blank" rel="external">https://github.com/f111fei/hexo-processor-copyassets</a><br>Processor CopyAssets Plugin</p>
+</blockquote>
+<p><strong>这是最终采用的解决方案</strong></p>
+<p>This is a processor copyAssets plugin for Hexo.You can customize what files are not rendered but can direct copy while executing <code>hexo generate</code>.</p>
+<h4 id="Install">Install</h4>
+<pre><code>$ npm <span class="operator"><span class="keyword">install</span> hexo-processor-copyassets <span class="comment">--save</span></span>
+</code></pre><h4 id="Options">Options</h4>
+<p>You can configure this plugin in <code>_config.yml</code>. ForExample:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">copyAssets</span>: <span class="string">project</span></div></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">copyAssets</span>: <span class="string">CNAME,project,resource/img</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>copyAssets</strong> - The files or folders path in source folder that you want to direct copy to public folder.  </li>
+</ul>
+<hr>
+<p>为保持原 <code>README.md</code> 的结构，也附上中文：</p>
+<p>这是一个 Hexo 的文件处理插件，能自定义 <code>source</code> 中的指定文件或文件夹，在执行 <code>generate</code> 命令的时候能直接复制到 <code>public</code> 文件夹中而不经过渲染。比如，这个文件<code>source/project/index.html</code>，我不想被渲染，那么你就可以使用这个插件。</p>
+<h4 id="安装">安装</h4>
+<pre><code>$ npm <span class="operator"><span class="keyword">install</span> hexo-processor-copyassets <span class="comment">--save</span></span>
+</code></pre><h4 id="配置插件">配置插件</h4>
+<p>你可以在 <code>_config.yml</code> 中配置这个插件，例如:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">copyAssets: <span class="keyword">project</span>  #表示 <span class="keyword">project</span> 文件夹中的文件不被渲染，直接复制到 <span class="keyword">public</span> 文件夹。</div></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">copyAsset<span class="variable">s:</span> CNAME,project,resource/img #可以指定文件和文件夹，用 <span class="string">","</span> 号隔开</div></pre></td></tr></table></figure>
+
+<h2 id="总结：方案选择">总结：方案选择</h2>
+<p>至此，问题解决。优劣分析：方案 A 每次添加新的目录，都要修改底层的东西，不太好。方案 B 和 C 都很省事儿。不过方案 B，把文件放在 <code>themes</code> 的<code>source</code>文件夹下，换主题就会不方便。<br><strong>推荐方案 C</strong></p>
+<p><strong>如果觉得帮到了你，打赏一下吧！</strong><br><img src="/image/IMG_1179.JPG" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="../../../../categories/hoby">hoby</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tech/">tech</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://qinhongwei.com/2014/11/18/如何防止hexo渲染某个文件夹/" data-title="如何防止hexo渲染某个文件夹 | Hongwei Qin&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/11/19/科技新闻的专业硬伤/" title="科技新闻的专业硬伤">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  科技新闻的专业硬伤</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/11/15/星际穿越/"  title="星际穿越">
+ <strong>NEXT:</strong><br/> 
+ <span>星际穿越
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方案 A"><span class="toc-number">2.1.</span> <span class="toc-text">方案 A</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案 B"><span class="toc-number">2.2.</span> <span class="toc-text">方案 B</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案 C"><span class="toc-number">2.3.</span> <span class="toc-text">方案 C</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Install"><span class="toc-number">2.3.1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Options"><span class="toc-number">2.3.2.</span> <span class="toc-text">Options</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">2.3.3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置插件"><span class="toc-number">2.3.4.</span> <span class="toc-text">配置插件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结：方案选择"><span class="toc-number">3.</span> <span class="toc-text">总结：方案选择</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/academic/" title="academic">academic<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hoby/" title="hoby">hoby<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/practice/" title="practice">practice<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/tech/" title="tech">tech<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/思考/" title="思考">思考<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/paper/" title="paper">paper<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/outdoor/" title="outdoor">outdoor<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/conference/" title="conference">conference<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/life/" title="life">life<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/academic/" title="academic">academic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/interview/" title="interview">interview<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/test/" title="test">test<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/devices/" title="devices">devices<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/learning/" title="learning">learning<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tricks/" title="tricks">tricks<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/phd/" title="phd">phd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/deeplearning/" title="deeplearning">deeplearning<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/trick/" title="trick">trick<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/movie/" title="movie">movie<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/food/" title="food">food<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="../../../../tags/academic" style="font-size: 10.00px;">academic</a><a href="../../../../tags/conference" style="font-size: 12.00px;">conference</a><a href="../../../../tags/deeplearning" style="font-size: 10.00px;">deeplearning</a><a href="../../../../tags/devices" style="font-size: 10.00px;">devices</a><a href="../../../../tags/food" style="font-size: 10.00px;">food</a><a href="../../../../tags/interview" style="font-size: 10.00px;">interview</a><a href="../../../../tags/learning" style="font-size: 10.00px;">learning</a><a href="../../../../tags/life" style="font-size: 12.00px;">life</a><a href="../../../../tags/movie" style="font-size: 10.00px;">movie</a><a href="../../../../tags/outdoor" style="font-size: 14.00px;">outdoor</a><a href="../../../../tags/paper" style="font-size: 16.00px;">paper</a><a href="../../../../tags/phd" style="font-size: 10.00px;">phd</a><a href="../../../../tags/tech" style="font-size: 20.00px;">tech</a><a href="../../../../tags/test" style="font-size: 10.00px;">test</a><a href="../../../../tags/trick" style="font-size: 10.00px;">trick</a><a href="../../../../tags/tricks" style="font-size: 10.00px;">tricks</a><a href="../../../../tags/思考" style="font-size: 18.00px;">思考</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.douban.com/people/bigbigsun/" target="_blank" title="bigbigsun的豆瓣">bigbigsun的豆瓣</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.newsmth.net/nForum/#!board/braveheart" target="_blank" title="我待过的地方">清华山野bbs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.matrix67.com/blog/" target="_blank" title="matrix67">matrix67</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://localhost-8080.com/" target="_blank" title="localhost-8080">localhost-8080</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://jianshu.com" target="_blank" title="简书">简书</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://v2ex.io" target="_blank" title="v2ex">v2ex</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://next.36kr.com" target="_blank" title="36kr next">36kr next</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coolshell.cn" target="_blank" title="酷壳">酷壳</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://shixian.com" target="_blank" title="实现">实现</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://quora.com" target="_blank" title="Quora">Quora</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://zhihu.com" target="_blank" title="知乎">知乎</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arnetminer.org" target="_blank" title="AMiner">AMiner</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.tsinghua.edu.cn" target="_blank" title="Tsinghua Unviersity">Tsinghua Unviersity</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> PhD Candidate, Tsinghua Unviersity, focusing on Computer Vision <br/>
+			I Believe It is Artifical Intelligence that will ultimately Make Human Equal, instead of God and Law.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/qinhongwei" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hongweiqin" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/qinhongwei" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		
+		
+		<a href="mailto:qhw12@mails.tsinghua.edu.cn" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="http://qinhongwei.com/about" target="_blank" title="Hongwei Qin">Hongwei Qin</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+    
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>WeChat</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="WeChat"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'qinhongwei';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-61221009-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

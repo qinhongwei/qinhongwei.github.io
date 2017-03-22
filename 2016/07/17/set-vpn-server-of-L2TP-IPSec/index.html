@@ -1,0 +1,718 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Set VPN server of L2TP/IPSec on Ubuntu 14.04 | Hongwei Qin&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hongwei Qin">
+    
+
+    
+    <meta name="description" content="iOS 10 Public beta version does not support PPTP anymore for security consideration. In a previous blog, I’ve shown how to setup PP2P VPN server on Ubuntu 14.04. Now, let’s setup L2TP/IPSec VPN.
+Step">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Set VPN server of L2TP/IPSec on Ubuntu 14.04">
+<meta property="og:url" content="http://qinhongwei.com/2016/07/17/set-vpn-server-of-L2TP-IPSec/">
+<meta property="og:site_name" content="Hongwei Qin's Blog">
+<meta property="og:description" content="iOS 10 Public beta version does not support PPTP anymore for security consideration. In a previous blog, I’ve shown how to setup PP2P VPN server on Ubuntu 14.04. Now, let’s setup L2TP/IPSec VPN.
+Step">
+<meta property="og:image" content="/image/ipsec_verify.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Set VPN server of L2TP/IPSec on Ubuntu 14.04">
+<meta name="twitter:description" content="iOS 10 Public beta version does not support PPTP anymore for security consideration. In a previous blog, I’ve shown how to setup PP2P VPN server on Ubuntu 14.04. Now, let’s setup L2TP/IPSec VPN.
+Step">
+<meta name="twitter:creator" content="@hongweiqin">
+
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hongwei Qin&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Hongwei Qin&#39;s Blog" title="Hongwei Qin&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hongwei Qin&#39;s Blog">Hongwei Qin&#39;s Blog</a></h1>
+				<h2 class="blog-motto">Share with the World</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/academic">Academic</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/messages">Messages</a></li>
+					
+						<li><a href="/今天吃什么？">今天吃什么？</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/17/set-vpn-server-of-L2TP-IPSec/" title="Set VPN server of L2TP/IPSec on Ubuntu 14.04" itemprop="url">Set VPN server of L2TP/IPSec on Ubuntu 14.04</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://qinhongwei.com/academic" title="Hongwei Qin" target="_blank" itemprop="author">Hongwei Qin</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-17T13:13:34.000Z" itemprop="datePublished"> Published Jul 17 2016</time>
+	 Updated:<time datetime="2016-07-17T14:46:14.000Z" itemprop="dateModified">Jul 17 2016</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_1:_Install_requirements"><span class="toc-number">1.</span> <span class="toc-text">Step 1: Install requirements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_2:_Configure_firewall"><span class="toc-number">2.</span> <span class="toc-text">Step 2: Configure firewall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_3:_Change_/etc/rc-local"><span class="toc-number">3.</span> <span class="toc-text">Step 3: Change /etc/rc.local</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_4:_Configure_Openswan_(IPSEC)"><span class="toc-number">4.</span> <span class="toc-text">Step 4: Configure Openswan (IPSEC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_5:_Configure_xl2tp"><span class="toc-number">5.</span> <span class="toc-text">Step 5: Configure xl2tp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_6:_Restart_the_services"><span class="toc-number">6.</span> <span class="toc-text">Step 6: Restart the services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client_configurations"><span class="toc-number">7.</span> <span class="toc-text">Client configurations</span></a></li></ol>
+		
+		</div>
+		
+		<p>iOS 10 Public beta version does not support PPTP anymore for security consideration. In a previous blog, I’ve shown how to setup PP2P VPN server on Ubuntu 14.04. Now, let’s setup L2TP/IPSec VPN.</p>
+<h2 id="Step_1:_Install_requirements">Step 1: Install requirements</h2>
+<p>First change to <code>sudo</code> mode, because we’ll have to use sudo many more times.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> <span class="operator">-s</span></div></pre></td></tr></table></figure>
+
+<p>then,</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-<span class="keyword">get</span> install openswan xl2tpd ppp lsof</div></pre></td></tr></table></figure>
+
+<h2 id="Step_2:_Configure_firewall">Step 2: Configure firewall</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -<span class="keyword">t</span> nat -A POSTROUTING -<span class="keyword">j</span> SNAT --<span class="keyword">to</span>-<span class="keyword">source</span> %YOUR-SERVER-IP% -<span class="keyword">o</span> eth</div></pre></td></tr></table></figure>
+
+<p>Here, please replace %YOUR-SERVER-IP% (remove % of course)<br>do the following to modify <code>/etc/sysctl.conf</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.ip_forward = 1"</span> |  tee <span class="operator">-a</span> /etc/sysctl.conf</div><div class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.conf.all.accept_redirects = 0"</span> |  tee <span class="operator">-a</span> /etc/sysctl.conf</div><div class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.conf.all.send_redirects = 0"</span> |  tee <span class="operator">-a</span> /etc/sysctl.conf</div><div class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.conf.default.rp_filter = 0"</span> |  tee <span class="operator">-a</span> /etc/sysctl.conf</div><div class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.conf.default.accept_source_route = 0"</span> |  tee <span class="operator">-a</span> /etc/sysctl.conf</div><div class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.conf.default.send_redirects = 0"</span> |  tee <span class="operator">-a</span> /etc/sysctl.conf</div><div class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.icmp_ignore_bogus_error_responses = 1"</span> |  tee <span class="operator">-a</span> /etc/sysctl.conf</div><div class="line"></div><div class="line"><span class="keyword">for</span> vpn <span class="keyword">in</span> /proc/sys/net/ipv4/conf/*; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="number">0</span> &gt; <span class="variable">$vpn</span>/accept_redirects; <span class="built_in">echo</span> <span class="number">0</span> &gt; <span class="variable">$vpn</span>/send_redirects; <span class="keyword">done</span></div></pre></td></tr></table></figure>
+
+<p>Apply the above change with </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">sysctl</span> -p</div></pre></td></tr></table></figure>
+
+<h2 id="Step_3:_Change_/etc/rc-local">Step 3: Change <code>/etc/rc.local</code></h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vim</span> /etc/rc.local</div></pre></td></tr></table></figure>
+
+<p>Before the line <code>exit 0</code>, add the following line (remember to replace %YOUR-SERVER-IP%), to make sure the modifications still work after reboot:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> vpn <span class="keyword">in</span> /<span class="keyword">proc</span>/sys/net/ipv4/conf/*; <span class="keyword">do</span> echo <span class="number">0</span> &gt; $vpn/accept_redirects; echo <span class="number">0</span> &gt; $vpn/send_redirects; done</div><div class="line">iptables -t nat -A <span class="type">POSTROUTING</span> -j <span class="type">SNAT</span> --to-source %<span class="type">YOUR</span>-<span class="type">SERVER</span>-<span class="type">IP</span>% -o eth+</div></pre></td></tr></table></figure>
+
+<h2 id="Step_4:_Configure_Openswan_(IPSEC)">Step 4: Configure Openswan (IPSEC)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vim</span> /etc/ipsec.<span class="keyword">conf</span></div></pre></td></tr></table></figure>
+
+<p>add the following in <code>conf setup</code> part</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="setting">protostack=<span class="value">netkey</span></span></div><div class="line"><span class="setting">force_keepalive=<span class="value"><span class="keyword">yes</span></span></span></div><div class="line"><span class="setting">keep_alive=<span class="value"><span class="number">60</span></span></span></div></pre></td></tr></table></figure>
+
+<p>add the following in the end of the file (remember to replace %YOUR-SERVER-IP%):</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">conn L2TP-PSK-noNAT  </div><div class="line">  <span class="variable">authby=</span>secret  </div><div class="line">  <span class="variable">pfs=</span>no  </div><div class="line">  <span class="variable">auto=</span>add  </div><div class="line">  <span class="variable">keyingtries=</span><span class="number">3</span>  </div><div class="line">  <span class="variable">rekey=</span>no  </div><div class="line">  <span class="variable">ikelifetime=</span><span class="number">8</span>h  </div><div class="line">  <span class="variable">keylife=</span><span class="number">1</span>h</div><div class="line">  <span class="variable">ike=</span>aes256-sha1,aes128-sha1,<span class="number">3</span>des-sha1</div><div class="line">  <span class="variable">phase2alg=</span>aes256-sha1,aes128-sha1,<span class="number">3</span>des-sha1</div><div class="line">  <span class="variable">type=</span>transport  </div><div class="line">  <span class="variable">left=</span>%YOUR-SERVER-IP%  </div><div class="line">  <span class="variable">leftprotoport=</span><span class="number">17</span>/<span class="number">1701</span>  </div><div class="line">  <span class="variable">right=</span>%any  </div><div class="line">  <span class="variable">rightprotoport=</span><span class="number">17</span>/%any</div><div class="line">  <span class="variable">dpddelay=</span><span class="number">10</span></div><div class="line">  <span class="variable">dpdtimeout=</span><span class="number">20</span></div><div class="line">  <span class="variable">dpdaction=</span>clear</div></pre></td></tr></table></figure>
+
+<p>now, add the following line to <code>/etc/ipsec.secrets</code> (remember to replace %YOUR-SERVER-IP% and your-password):</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">%YOUR</span>-SERVER-IP% <span class="variable">%any</span>: PSK <span class="string">"your-password"</span></div></pre></td></tr></table></figure>
+
+<p>now use</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">ipsec</span> verify</div></pre></td></tr></table></figure>
+
+<p>to check errors, it may show something like this:<br><img src="/image/ipsec_verify.png" alt="ipsec verify"><br>The errors and warnings are okay. the <code>Failed</code> error is caused by an old perl version and can be ignored.</p>
+<h2 id="Step_5:_Configure_xl2tp">Step 5: Configure xl2tp</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vim</span> /etc/xl2tpd/xl2tpd.<span class="keyword">conf</span></div></pre></td></tr></table></figure>
+
+<p>add the following lines to the end:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">ipsec <span class="variable">saref =</span> yes</div><div class="line">saref <span class="variable">refinfo =</span> <span class="number">30</span></div><div class="line"></div><div class="line">;debug <span class="variable">avp =</span> yes</div><div class="line">;debug <span class="variable">network =</span> yes</div><div class="line">;debug <span class="variable">state =</span> yes</div><div class="line">;debug <span class="variable">tunnel =</span> yes</div><div class="line"></div><div class="line">[lns default]</div><div class="line">ip <span class="variable">range =</span> <span class="number">172.16</span>.<span class="number">1.30</span>-<span class="number">172.16</span>.<span class="number">1.100</span></div><div class="line">local <span class="variable">ip =</span> <span class="number">172.16</span>.<span class="number">1.1</span></div><div class="line">refuse <span class="variable">pap =</span> yes</div><div class="line">require <span class="variable">authentication =</span> yes</div><div class="line">;ppp <span class="variable">debug =</span> yes</div><div class="line"><span class="variable">pppoptfile =</span> /etc/ppp/options.xl2tpd</div><div class="line">length <span class="variable">bit =</span> yes</div></pre></td></tr></table></figure>
+
+<p>now, create options.xl2tpd</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vim</span> /etc/ppp/<span class="keyword">options</span>.xl2tpd</div></pre></td></tr></table></figure>
+
+<p>add the following:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">require-mschap-v2</div><div class="line">ms-dns <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">ms-dns <span class="number">8.8</span>.<span class="number">4.4</span></div><div class="line">auth</div><div class="line">mtu <span class="number">1200</span></div><div class="line">mru <span class="number">1000</span></div><div class="line">crtscts</div><div class="line"><span class="keyword">hide</span>-password</div><div class="line">modem</div><div class="line">name l2tpd</div><div class="line">proxyarp</div><div class="line">lcp-<span class="keyword">echo</span>-interval <span class="number">30</span></div><div class="line">lcp-<span class="keyword">echo</span>-failure <span class="number">4</span></div></pre></td></tr></table></figure>
+
+<p>now, add your VPN accounts:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vim</span> /etc/ppp/chap-secrets</div></pre></td></tr></table></figure>
+
+<p>each line is one account, you can add multiple lines:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># Secrets for authentication using CHAP  </span></div><div class="line"><span class="preprocessor"># client server secret IP addresses  </span></div><div class="line">your_user_name l2tpd your_password *</div></pre></td></tr></table></figure>
+
+<h2 id="Step_6:_Restart_the_services">Step 6: Restart the services</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">service</span> <span class="title">ipsec</span> restart</span></div><div class="line">service xl2tpd restart</div></pre></td></tr></table></figure>
+
+<h2 id="Client_configurations">Client configurations</h2>
+<p>Take iOS 10 for example, choose L2TP, use your account and PSK<br>Enjoy.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tech/">tech</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://qinhongwei.com/2016/07/17/set-vpn-server-of-L2TP-IPSec/" data-title="Set VPN server of L2TP/IPSec on Ubuntu 14.04 | Hongwei Qin&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/07/24/2016/build your private cloud service/" title="build your private cloud service">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  build your private cloud service</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/06/05/nature-of-phd-1/"  title="Secrets of PhD">
+ <strong>NEXT:</strong><br/> 
+ <span>Secrets of PhD
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_1:_Install_requirements"><span class="toc-number">1.</span> <span class="toc-text">Step 1: Install requirements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_2:_Configure_firewall"><span class="toc-number">2.</span> <span class="toc-text">Step 2: Configure firewall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_3:_Change_/etc/rc-local"><span class="toc-number">3.</span> <span class="toc-text">Step 3: Change /etc/rc.local</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_4:_Configure_Openswan_(IPSEC)"><span class="toc-number">4.</span> <span class="toc-text">Step 4: Configure Openswan (IPSEC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_5:_Configure_xl2tp"><span class="toc-number">5.</span> <span class="toc-text">Step 5: Configure xl2tp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_6:_Restart_the_services"><span class="toc-number">6.</span> <span class="toc-text">Step 6: Restart the services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client_configurations"><span class="toc-number">7.</span> <span class="toc-text">Client configurations</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/academic/" title="academic">academic<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hoby/" title="hoby">hoby<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/practice/" title="practice">practice<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/tech/" title="tech">tech<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/思考/" title="思考">思考<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/paper/" title="paper">paper<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/outdoor/" title="outdoor">outdoor<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/conference/" title="conference">conference<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/life/" title="life">life<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/academic/" title="academic">academic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/interview/" title="interview">interview<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/test/" title="test">test<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/devices/" title="devices">devices<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/learning/" title="learning">learning<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tricks/" title="tricks">tricks<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/phd/" title="phd">phd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/deeplearning/" title="deeplearning">deeplearning<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/trick/" title="trick">trick<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/movie/" title="movie">movie<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/food/" title="food">food<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="../../../../tags/academic" style="font-size: 10.00px;">academic</a><a href="../../../../tags/conference" style="font-size: 12.00px;">conference</a><a href="../../../../tags/deeplearning" style="font-size: 10.00px;">deeplearning</a><a href="../../../../tags/devices" style="font-size: 10.00px;">devices</a><a href="../../../../tags/food" style="font-size: 10.00px;">food</a><a href="../../../../tags/interview" style="font-size: 10.00px;">interview</a><a href="../../../../tags/learning" style="font-size: 10.00px;">learning</a><a href="../../../../tags/life" style="font-size: 12.00px;">life</a><a href="../../../../tags/movie" style="font-size: 10.00px;">movie</a><a href="../../../../tags/outdoor" style="font-size: 14.00px;">outdoor</a><a href="../../../../tags/paper" style="font-size: 16.00px;">paper</a><a href="../../../../tags/phd" style="font-size: 10.00px;">phd</a><a href="../../../../tags/tech" style="font-size: 20.00px;">tech</a><a href="../../../../tags/test" style="font-size: 10.00px;">test</a><a href="../../../../tags/trick" style="font-size: 10.00px;">trick</a><a href="../../../../tags/tricks" style="font-size: 10.00px;">tricks</a><a href="../../../../tags/思考" style="font-size: 18.00px;">思考</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.douban.com/people/bigbigsun/" target="_blank" title="bigbigsun的豆瓣">bigbigsun的豆瓣</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.newsmth.net/nForum/#!board/braveheart" target="_blank" title="我待过的地方">清华山野bbs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.matrix67.com/blog/" target="_blank" title="matrix67">matrix67</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://localhost-8080.com/" target="_blank" title="localhost-8080">localhost-8080</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://jianshu.com" target="_blank" title="简书">简书</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://v2ex.io" target="_blank" title="v2ex">v2ex</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://next.36kr.com" target="_blank" title="36kr next">36kr next</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coolshell.cn" target="_blank" title="酷壳">酷壳</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://shixian.com" target="_blank" title="实现">实现</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://quora.com" target="_blank" title="Quora">Quora</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://zhihu.com" target="_blank" title="知乎">知乎</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arnetminer.org" target="_blank" title="AMiner">AMiner</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.tsinghua.edu.cn" target="_blank" title="Tsinghua Unviersity">Tsinghua Unviersity</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> PhD Candidate, Tsinghua Unviersity, focusing on Computer Vision <br/>
+			I Believe It is Artifical Intelligence that will ultimately Make Human Equal, instead of God and Law.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/qinhongwei" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hongweiqin" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/qinhongwei" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		
+		
+		<a href="mailto:qhw12@mails.tsinghua.edu.cn" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="http://qinhongwei.com/about" target="_blank" title="Hongwei Qin">Hongwei Qin</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+    
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>WeChat</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="WeChat"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'qinhongwei';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-61221009-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

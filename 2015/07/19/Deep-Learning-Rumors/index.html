@@ -1,0 +1,667 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Deep Learning and computer vision | Hongwei Qin&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Hongwei Qin">
+    
+
+    
+    <meta name="description" content="在计算机视觉的物体检测和识别领域，过去的三年中 (2012-2015) 深度学习取得了革命性的突破。现在，计算视觉研究人员眼中的算法分为两类：深度学习方法和其他方法。自从 2012 年 ImageNet 的图像识别比赛中，多伦多大学的 Geoffrey Hinton 带领的研究组用卷积神经网络 (CNN) 取得了最好成绩，并拉开第二名“其他方法”超过 10 个百分点，计算机视觉领域开始大规模关注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Learning and computer vision">
+<meta property="og:url" content="http://qinhongwei.com/2015/07/19/Deep-Learning-Rumors/">
+<meta property="og:site_name" content="Hongwei Qin's Blog">
+<meta property="og:description" content="在计算机视觉的物体检测和识别领域，过去的三年中 (2012-2015) 深度学习取得了革命性的突破。现在，计算视觉研究人员眼中的算法分为两类：深度学习方法和其他方法。自从 2012 年 ImageNet 的图像识别比赛中，多伦多大学的 Geoffrey Hinton 带领的研究组用卷积神经网络 (CNN) 取得了最好成绩，并拉开第二名“其他方法”超过 10 个百分点，计算机视觉领域开始大规模关注">
+<meta property="og:image" content="/image/IMG_1179.JPG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep Learning and computer vision">
+<meta name="twitter:description" content="在计算机视觉的物体检测和识别领域，过去的三年中 (2012-2015) 深度学习取得了革命性的突破。现在，计算视觉研究人员眼中的算法分为两类：深度学习方法和其他方法。自从 2012 年 ImageNet 的图像识别比赛中，多伦多大学的 Geoffrey Hinton 带领的研究组用卷积神经网络 (CNN) 取得了最好成绩，并拉开第二名“其他方法”超过 10 个百分点，计算机视觉领域开始大规模关注">
+<meta name="twitter:creator" content="@hongweiqin">
+
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hongwei Qin&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="../../../../css/style.css" type="text/css">
+
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Hongwei Qin&#39;s Blog" title="Hongwei Qin&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hongwei Qin&#39;s Blog">Hongwei Qin&#39;s Blog</a></h1>
+				<h2 class="blog-motto">Share with the World</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/academic">Academic</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/messages">Messages</a></li>
+					
+						<li><a href="/今天吃什么？">今天吃什么？</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/19/Deep-Learning-Rumors/" title="Deep Learning and computer vision" itemprop="url">Deep Learning and computer vision</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://qinhongwei.com/academic" title="Hongwei Qin" target="_blank" itemprop="author">Hongwei Qin</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-19T06:23:55.000Z" itemprop="datePublished"> Published Jul 19 2015</time>
+	 Updated:<time datetime="2016-06-16T15:45:21.000Z" itemprop="dateModified">Jun 16 2016</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#深度学习之前"><span class="toc-number">1.</span> <span class="toc-text">深度学习之前</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1995-2000 局部特征算子的兴起"><span class="toc-number">1.0.1.</span> <span class="toc-text">1995-2000 局部特征算子的兴起</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2000-2005 现代数据集与词袋模型"><span class="toc-number">1.0.2.</span> <span class="toc-text">2000-2005 现代数据集与词袋模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2005-2010 图像模板时代"><span class="toc-number">1.0.3.</span> <span class="toc-text">2005-2010 图像模板时代</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2010-2015 深度学习革命"><span class="toc-number">2.</span> <span class="toc-text">2010-2015 深度学习革命</span></a></li></ol>
+		
+		</div>
+		
+		<p>在计算机视觉的物体检测和识别领域，过去的三年中 (2012-2015) 深度学习取得了革命性的突破。现在，计算视觉研究人员眼中的算法分为两类：深度学习方法和其他方法。自从 2012 年 ImageNet 的图像识别比赛中，多伦多大学的 Geoffrey Hinton 带领的研究组用卷积神经网络 (CNN) 取得了最好成绩，并拉开第二名“其他方法”超过 10 个百分点，计算机视觉领域开始大规模关注 CNN。现在，CNN 出现在计算机视觉与模式识别大会 (CVPR) 的各个领域。过去在 CVPR 上很难发表 CNN 相关的工作，而现在如果你的新算法没有跟 CNN 基准对比过，那么很可能没人关心你的算法。</p>
+<h2 id="深度学习之前">深度学习之前</h2>
+<h4 id="1995-2000 局部特征算子的兴起">1995-2000 局部特征算子的兴起</h4>
+<p>这段时间在约 1995-2000 年期间，代表性的工作是尺度不变特征变换 (SIFT) 在 1999 年被 David Lowe 提出来，一夜之间改变了计算机视觉研究。在 SIFT 之前，人们还在用像素级别的距离 (SSD, sum of squared<br>distances) 来度量两个图像块之间的差异。SIFT 是一种局部特征算子，它用一个向量来鲁棒地表示图像中的兴趣点。你旋转、移动相机，从不同的角度拍摄某个物体，相同的点的 SIFT 特征非常接近，即尺度不变的特征变换。这样就可以用关键点的匹配做很多工作，比如图像匹配、拼接、对齐等等。</p>
+<h4 id="2000-2005 现代数据集与词袋模型">2000-2005 现代数据集与词袋模型</h4>
+<p>1990 年代末，互联网兴起，图像开始存储在网络上，研究人员开始创建数据集（datasets）。新生代研究人员不再专注于结构恢复问题（几何问题）。伴随着大规模数据集时代兴起，Caltech-101 逐渐得到关注，同时分类图像分类研究开始发展。Caltech-101 可以认为是现代大规模图像数据集比如 ImageNet 的鼻祖，均出自 Fei-Fei Li 之手。图~<br>图像识别研究兴起后，原生的 SIFT 特征难以区分同一类别的不同物体，亟需一种能够容忍图像中物体各个部分相对关系的改变和图像块缺失的算法。也就是说，我们需要一种更加偏向统计的物体识别方法。</p>
+<p>视觉词（Visual Words）在 2003 年兴起，在 SIFT 特征上通过无监督学习（主要是 k-means 聚类）得到视觉词典（visual Dictionary）。视觉词的直方图可以作为一种比较鲁棒的图像表示方法。词袋模型及其变形很快被广泛应用到视觉研究中。<br>同时兴起的还有面元结构(Bins, Grids)。在 2000 年代中期，研究人员并不是很明确应该聚焦到更好的特征上，更好的度量方式上，还是更好的学习方法上。</p>
+<h4 id="2005-2010 图像模板时代">2005-2010 图像模板时代</h4>
+<p>2005 年，HOG(Histogram of Oriented Gradients)被 Navneet 提出。当所有人都在用词袋模型，多层学习，把系统变得特别复杂的时候，HOG 相对非常简单。它最初被用于行人检测。在 HOG 特征之上，使用了线性 SVM，所以很容易使用。</p>
+<p>2008 年，出现了一篇关于物体检测的论文，提出了变形部件模型(Deformable Parts-based Model, DPM)，使得 HOG 更加流行和强大。DPM 是 PASCAL VOC 挑战赛的最新赢家。</p>
+<p>2008 年左右，科学家们越来越擅长处理大规模数据集。并不是因为云计算或者大数据的兴起，而是因为数据科学家的兴起。从推公式，设计原型，部署大规模计算，把结果应用到产品系统中可以一气呵成。</p>
+<h2 id="2010-2015 深度学习革命">2010-2015 深度学习革命</h2>
+<p>这时候深度学习技术已经开始兴起。深度学习技术可以看做是神经网络 2.0 革命。巧合的是，在 2012 年的图片分类挑战赛中得胜的研究组正是 20 年前因为坚持神经网络研究而被嘲笑的那批人，现在他们成了深度学习的泰斗。<br>卷积神经网络的技术在 1990 年前后就已经在字符识别中得到应用(Yann LeCun). 现在之所以能够以更强大的形式带来革命，与现在强大的计算能力直接相关。2012 年至今，深度学习技术快速进步，逐渐从图片分类渗透到计算机视觉技术的各个研究领域。目前已经成为一种通用的工具，不断刷新在各类计算机视觉任务上的表现。</p>
+<p><strong>如果觉得帮到了你，打赏一下吧！</strong><br><img src="/image/IMG_1179.JPG" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="../../../../categories/academic">academic</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://qinhongwei.com/2015/07/19/Deep-Learning-Rumors/" data-title="Deep Learning and computer vision | Hongwei Qin&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/08/Beijing-Beijing/" title="北京北京">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  北京北京</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/06/memory-of-the-green/"  title="绿色的记忆">
+ <strong>NEXT:</strong><br/> 
+ <span>绿色的记忆
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#深度学习之前"><span class="toc-number">1.</span> <span class="toc-text">深度学习之前</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1995-2000 局部特征算子的兴起"><span class="toc-number">1.0.1.</span> <span class="toc-text">1995-2000 局部特征算子的兴起</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2000-2005 现代数据集与词袋模型"><span class="toc-number">1.0.2.</span> <span class="toc-text">2000-2005 现代数据集与词袋模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2005-2010 图像模板时代"><span class="toc-number">1.0.3.</span> <span class="toc-text">2005-2010 图像模板时代</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2010-2015 深度学习革命"><span class="toc-number">2.</span> <span class="toc-text">2010-2015 深度学习革命</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/academic/" title="academic">academic<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hoby/" title="hoby">hoby<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/practice/" title="practice">practice<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/tech/" title="tech">tech<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/思考/" title="思考">思考<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/paper/" title="paper">paper<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/outdoor/" title="outdoor">outdoor<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/conference/" title="conference">conference<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/life/" title="life">life<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/academic/" title="academic">academic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/interview/" title="interview">interview<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/test/" title="test">test<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/devices/" title="devices">devices<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/learning/" title="learning">learning<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tricks/" title="tricks">tricks<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/phd/" title="phd">phd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/deeplearning/" title="deeplearning">deeplearning<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/trick/" title="trick">trick<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/movie/" title="movie">movie<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/food/" title="food">food<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="../../../../tags/academic" style="font-size: 10.00px;">academic</a><a href="../../../../tags/conference" style="font-size: 12.00px;">conference</a><a href="../../../../tags/deeplearning" style="font-size: 10.00px;">deeplearning</a><a href="../../../../tags/devices" style="font-size: 10.00px;">devices</a><a href="../../../../tags/food" style="font-size: 10.00px;">food</a><a href="../../../../tags/interview" style="font-size: 10.00px;">interview</a><a href="../../../../tags/learning" style="font-size: 10.00px;">learning</a><a href="../../../../tags/life" style="font-size: 12.00px;">life</a><a href="../../../../tags/movie" style="font-size: 10.00px;">movie</a><a href="../../../../tags/outdoor" style="font-size: 14.00px;">outdoor</a><a href="../../../../tags/paper" style="font-size: 16.00px;">paper</a><a href="../../../../tags/phd" style="font-size: 10.00px;">phd</a><a href="../../../../tags/tech" style="font-size: 20.00px;">tech</a><a href="../../../../tags/test" style="font-size: 10.00px;">test</a><a href="../../../../tags/trick" style="font-size: 10.00px;">trick</a><a href="../../../../tags/tricks" style="font-size: 10.00px;">tricks</a><a href="../../../../tags/思考" style="font-size: 18.00px;">思考</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.douban.com/people/bigbigsun/" target="_blank" title="bigbigsun的豆瓣">bigbigsun的豆瓣</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.newsmth.net/nForum/#!board/braveheart" target="_blank" title="我待过的地方">清华山野bbs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.matrix67.com/blog/" target="_blank" title="matrix67">matrix67</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://localhost-8080.com/" target="_blank" title="localhost-8080">localhost-8080</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://jianshu.com" target="_blank" title="简书">简书</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://v2ex.io" target="_blank" title="v2ex">v2ex</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://next.36kr.com" target="_blank" title="36kr next">36kr next</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coolshell.cn" target="_blank" title="酷壳">酷壳</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://shixian.com" target="_blank" title="实现">实现</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://quora.com" target="_blank" title="Quora">Quora</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://zhihu.com" target="_blank" title="知乎">知乎</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arnetminer.org" target="_blank" title="AMiner">AMiner</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.tsinghua.edu.cn" target="_blank" title="Tsinghua Unviersity">Tsinghua Unviersity</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> PhD Candidate, Tsinghua Unviersity, focusing on Computer Vision <br/>
+			I Believe It is Artifical Intelligence that will ultimately Make Human Equal, instead of God and Law.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/qinhongwei" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hongweiqin" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/qinhongwei" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		
+		
+		<a href="mailto:qhw12@mails.tsinghua.edu.cn" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="http://qinhongwei.com/about" target="_blank" title="Hongwei Qin">Hongwei Qin</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+    
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>WeChat</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="WeChat"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'qinhongwei';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-61221009-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

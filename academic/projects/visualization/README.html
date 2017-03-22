@@ -1,0 +1,69 @@
+<h1 id="NVD3_-_v1-1-10-beta">NVD3 - v1.1.10-beta</h1>
+<h2 id="Release_notes_for_version_1-1-10_beta">Release notes for version 1.1.10 beta</h2>
+<ul>
+<li>Line charts now have a new tooltip option available. This new tooltip displays all series information at once, and shows up anywhere your mouse moves.<br>To enable, set <strong>useInteractiveGuideline</strong> to true. See examples in the <strong>test/</strong> directory for how this tooltip works.</li>
+<li>New test pages have been created for various kinds of charts. They live in the <strong>test/</strong> directory. The goal of these test pages is to aid<br>in regression testing coverage when changes are made to charts.</li>
+<li>Pie charts accept data in a different way, and if you update to version 1.1, <strong>your pie charts will break</strong>. See the pie chart examples for how<br>data should be properly passed in. It’s a very simple change.</li>
+<li>Pie charts can now accept a ‘labelType’ property. </li>
+<li>Tooltip transitions are <strong>turned off</strong> by default, if you update to the latest nv.d3.css.  To bring them back, add a ‘with-transitions’ CSS class<br>to the containing chart DIV.</li>
+<li>Stacked area charts have transitions again. Duration is controlled via a ‘transitionDuration’ property.</li>
+<li>Line, cumulative, scatter, multi bar and discrete bar charts also have the ‘transitionDuration’ property.</li>
+<li>Issue #127: Adding ability to override individual scatter plot point colors.</li>
+<li>Issue #216: Exposing xRange and yRange overrides for all charts.</li>
+<li>Issue #168: Adding legend.radioButtonMode(). When set to true, legend click behavior will match those of radio buttons.</li>
+<li>Line stroke-width has been reduced to 1.5px, from 2.5px.</li>
+<li>Hover points on line and stacked area charts are now a small solid dot, instead of a large ring.</li>
+<li>Added Multibar chart property “groupSpacing”.</li>
+<li>Charts now have a method called “options()”, where you can pass in chart configurations via an object.</li>
+<li>examples/index.html page created, for quick access to all NVD3 examples and test pages.</li>
+</ul>
+<h2 id="Overview">Overview</h2>
+<p>A reusable chart library for d3.js.</p>
+<p>NVD3 may change from its current state, but will always try to follow the style of d3.js.</p>
+<p>You can also check out the <a href="http://nvd3.org/ghpages/examples.html">examples page</a>.<br><strong>Note:</strong> The examples on nvd3.org are outdated.  For examples on how to use the latest NVD3, please checkout the <strong>examples/</strong> directory in the repository.</p>
+<hr>
+<h1 id="Current_development_focus">Current development focus</h1>
+<ul>
+<li>Getting documentation up.</li>
+<li>Unifying common API functions between charts.</li>
+<li>Bug fixes that come up.</li>
+</ul>
+<hr>
+<h1 id="Installation_Instructions">Installation Instructions</h1>
+<p><code>d3.v3.js</code> is a dependency of <code>nv.d3.js</code>. Be sure to include in in your project, then:<br>Add a script tag to include <code>nv.d3.js</code> OR <code>nv.d3.min.js</code> in your project.<br>Also add a link to the <code>nv.d3.css</code> file.</p>
+<p>See wiki -&gt; Documentation for more detail</p>
+<hr>
+<p>If one of <a href="https://github.com/novus/nvd3/tree/master/src/models">the existing models</a> doesn’t meet your needs, fork the project, implement the model and an example using it, send us a pull request, for consideration for inclusion in the project.</p>
+<p>We cannot honor all pull requests, but we will review all of them.</p>
+<p>Please do not aggregate pull requests. Aggregated pull requests are actually more difficult to review.</p>
+<p>We are currently changing our branch structure so that master will be gauranteed stable. In addition, there is now a “development” branch. This branch reflects the latest changes to NVD3 and is not necessarily stable.</p>
+<hr>
+<h2 id="Minifying_your_fork:">Minifying your fork:</h2>
+<h3 id="Using_Make">Using Make</h3>
+<p>The Makefile requires <a href="https://github.com/mishoo/UglifyJS">UglifyJS</a> and <a href="https://github.com/jbleuzen/node-cssmin">CSSMin</a></p>
+<p>The easiest way to install UglifyJS and CSSMin is via npm. Run <code>npm install -g uglify-js cssmin</code>. After installing verify the setup by running <code>uglifyjs --version</code> and <code>cssmin --help</code>.</p>
+<p>Once you have the <code>uglifyjs</code> and <code>cssmin</code> commands available, running <code>make</code> from your<br>fork’s root directory will rebuild both <code>nv.d3.js</code> and <code>nv.d3.min.js</code>.</p>
+<pre><code><span class="keyword">make</span> # build nv.d3.js <span class="built_in">and</span> nv.d3.css <span class="built_in">and</span> minify
+<span class="keyword">make</span> nv.d3.js # Build nv.d3.js
+<span class="keyword">make</span> nv.d3.<span class="built_in">min</span>.js # Minify nv.d3.js into nv.d3.<span class="built_in">min</span>.js
+<span class="keyword">make</span> nv.d3.css # Build nv.d3.css
+<span class="keyword">make</span> nv.d3.<span class="built_in">min</span>.css # Minify nv.d3.css into nv.d3.<span class="built_in">min</span>.css
+<span class="keyword">make</span> clean # Delete nv.d3.*js <span class="built_in">and</span> nv.d3.*css
+</code></pre><p><em>Without UglifyJS of CSSMin, you won’t get the minified versions when running make.*</em></p>
+<h3 id="Using_Grunt">Using Grunt</h3>
+<p>You can use grunt instead of makefile to build js file. See more about <a href="http://gruntjs.com/">grunt</a>.<br><strong><em><a href="http://nodejs.org/">Nodejs</a> must be installed before you can use grunt.</em></strong><br>Run <code>npm install</code> in root dir to install grunt and it’s dependencies.</p>
+<p>Then, you can use these commands:</p>
+<pre><code>grunt # build nv.d3.js
+grunt production # build nv.d3.js <span class="keyword">and</span> nv.d3.min.js
+grunt watch # watch <span class="keyword">file</span> changes <span class="keyword">in</span> src/, <span class="keyword">and</span> rebuild nv.d3.js, it<span class="attribute">'s</span> very helpful <span class="keyword">when</span> delevop NVD3
+grunt lint # run jshint <span class="keyword">on</span> src<span class="comment">/**/</span>*.js
+</code></pre><p>**We ask that you DO NOT minify pull requests…<br>If you need to minify please build pull request in separate branch, and<br>merge and minify in your master.</p>
+<h2 id="Supported_Browsers">Supported Browsers</h2>
+<p>NVD3 runs best on WebKit based browsers. </p>
+<ul>
+<li><strong>Google Chrome: latest version (preferred)</strong></li>
+<li><strong>Opera 15+ (preferred)</strong></li>
+<li>Safari: latest version</li>
+<li>Firefox: latest version</li>
+<li>Internet Explorer: 9 and 10</li>
+</ul>

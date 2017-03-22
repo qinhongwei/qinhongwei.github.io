@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/index.html</loc>
+    <lastmod>2017-03-22T12:36:36.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/12/31/2016-review/</loc>
+    <lastmod>2016-12-31T12:46:47.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/07/24/2016/build%20your%20private%20cloud%20service/</loc>
+    <lastmod>2016-08-28T11:17:31.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/08/28/build-your-own-Cloud/</loc>
+    <lastmod>2016-08-28T11:07:41.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/11/15/tricks/</loc>
+    <lastmod>2016-07-19T08:57:06.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/07/17/set-vpn-server-of-L2TP-IPSec/</loc>
+    <lastmod>2016-07-17T14:46:14.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/tagoriginal.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/gauge_readfromjson.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/Hongwei_test/d3.js%20gauges.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/gauge_readfromcsv.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/gauge.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/stackedAreaChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/CSV%20parser%20using%20javascript.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/legend.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/stackedArea.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/sparkline.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/sparklinePlus.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/parallelCoordinates.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/Donut-interactive-frequency-product/donut.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/scatterPlusLineChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/scatter.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/scatterChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/multiBarChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/pieChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/multiChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/pie.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/multiBarHorizontalChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/multiBar.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/lineWithFocusChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/lineWithFisheyeChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/lineChartSVGResize.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/linePlusBarWithFocusChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/test_array2csv.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/test_csv2array.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/linePlusBarChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/lineChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/line.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/horizon.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/historicalBarChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/cumulativeLineChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/indentedtree.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/foundation-icons/preview.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/Messages/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/categories/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/crossfilterWithTables.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/search/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/websites/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/%E4%BB%8A%E5%A4%A9%E5%90%83%E4%BB%80%E4%B9%88%EF%BC%9F/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/JavaScriptMakeAChart_googlesheet_twitter.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/discreteBarChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/tag.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/README.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/dashboard2.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/bubblechart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/bubble.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/donutindex.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/douban2.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/douban.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/gauge2.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/gauge_readfromjson.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/piechart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/stackedAreaChart_sg.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/stackedchart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/historicalBar.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/stackedchart2.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/title.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/donut/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/donut-interactive/donutindex.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/teamintroduction.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/stackedChart/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/tagcloud/original.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/ScatterChartTest.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/multiBarChartTest.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/interactiveBisectTest.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/lineChartTest.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/pieChartTest.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/polylinearTest.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/iPhone5SgeneralChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/realTimeChartTest.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/stackedAreaChartTest.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/Gauge/gauge.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/stackedAreaChartTest2.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/bullet.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/Gauge/gauge_readfromjson.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/test/stackedAreaChartTest_pos.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/bulletChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/crossfilterWithDimentions.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/crossfilter.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/05/18/influence/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/12/31/2015-review/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com//404.html</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/06/21/%E8%8A%82%E6%97%A5/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/11/19/%E7%A7%91%E6%8A%80%E6%96%B0%E9%97%BB%E7%9A%84%E4%B8%93%E4%B8%9A%E7%A1%AC%E4%BC%A4/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/11/15/%E6%98%9F%E9%99%85%E7%A9%BF%E8%B6%8A/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/11/18/%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2hexo%E6%B8%B2%E6%9F%93%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/10/29/%E4%BA%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E5%8D%9A%E5%AE%A2%EF%BC%9F/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/05/25/%E4%BF%9D%E5%AE%89%E6%9C%89%E6%9D%83%E5%8A%9B%E6%8B%A6%E4%BD%A0%E5%90%97%EF%BC%9F/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/01/15/ubuntu-desktop-reboot/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/11/14/wikipedia%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%A0%BC%E5%BC%8F/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/10/27/test/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/01/14/set-vpn-server/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/11/16/riding-in-north-Guangdong/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/06/05/nature-of-phd-1/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/05/08/manage-your-research-papers/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/07/06/memory-of-the-green/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/05/22/mac-for-geek/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/12/30/install-ubuntu/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/12/30/install-caffe/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/deepfish/deepfish.html</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/03/26/image-annotation-tools/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/03/10/how-to-interview-someone-for-two-years/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/01/25/iPad-4G-LTE/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/05/08/how-to-install-caffe-on-NVIDIA-TX1/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/02/06/how-about-teaching-primary-high-school-students/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/03/17/fullstack-geek-and-leader/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/03/06/get-your-free-domain-and-vps-through-github/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/11/03/foods-that-deserve-to-try-in-Singapore/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2016/05/08/buying-new-digital-devices/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/05/19/do-you-need-an-Apple-Watch/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/10/28/Website-built/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/03/13/Yangtai-Mountain-Hiking/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/11/19/Rhinoceros-in-Love/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/08/25/Miss/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/03/25/Fei-fei-Li-s-advice/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/07/19/Deep-Learning-Rumors/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2015/08/08/Beijing-Beijing/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/11/02/ACCV2014-workshop-papers/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/11/03/ACCV2014-Papers-and-Talks/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2014/12/31/2014Summarization/</loc>
+    <lastmod>2016-06-16T15:45:21.000Z</lastmod>
+  </url>
+  
+</urlset>

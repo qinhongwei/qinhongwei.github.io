@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DeepFish</title>
+</head>
+
+<body>
+<h1 align="center" id="deepfish-accurate-underwater-live-fish-recognition-with-deep-architectures">DeepFish: Accurate Underwater Live Fish Recognition with a Deep Architecture</h1>
+<p align="center">Hongwei Qin, Xiu Li, Jian Liang, Yigang Peng and Changshui Zhang<br />
+</p>
+<p align="center"><img src="image/framework.jpg" width="931" height="256" /></p>
+<p align="center">Fig. 1. Cascaded network, accuracy 98.64%</p>
+<p align="center"><img src="image/framework_cnn_jin.jpg" width="938" height="196" /></p>
+<p align="center">Fig. 2. CNN, accuracy 98.57%</p>
+<p align="left">Underwater object recognition is in great demand, while the research is far from enough.
+The unrestricted natural environment makes it a challenging task. We propose a framework to recognize fish from videos captured by underwater cameras deployed in the ocean observation network. First, we extract the foreground via sparse and low-rank matrix decomposition. Then, a deep architecture is used to extract features of the foreground fish images. In this architecture, principal component analysis (PCA) is used in two convolutional layers, followed by binary hashing in the non-linear layer and block-wise histograms in the feature pooling layer. Then spatial pyramid pooling (SPP) is used to extract information invariant to large poses. Finally, a linear SVM classifier is used for the classification. This deep network model can be trained efficiently. On a real-world fish recognition dataset, we achieve the state-of-the-art accuracy of 98.64%.</p>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61221009-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
