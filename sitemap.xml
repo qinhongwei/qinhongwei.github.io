@@ -2,17 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qinhongwei.com/netscope/quickstart.html</loc>
+    <lastmod>2017-03-29T11:21:48.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/netscope2/quickstart.html</loc>
+    <lastmod>2017-03-29T11:21:08.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/netscope2/README.html</loc>
+    <lastmod>2017-03-29T11:19:57.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/netscope2/index.html</loc>
+    <lastmod>2017-03-29T11:19:57.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://qinhongwei.com/netscope/README.html</loc>
     <lastmod>2017-03-29T11:02:14.000Z</lastmod>
   </url>
   
   <url>
     <loc>http://qinhongwei.com/netscope/index.html</loc>
-    <lastmod>2017-03-29T11:02:14.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://qinhongwei.com/netscope/quickstart.html</loc>
     <lastmod>2017-03-29T11:02:14.000Z</lastmod>
   </url>
   
@@ -82,6 +97,11 @@
   </url>
   
   <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/Hongwei_test/d3.js%20gauges.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://qinhongwei.com/academic/projects/visualization/d3/CSV%20parser%20using%20javascript.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
@@ -93,11 +113,6 @@
   
   <url>
     <loc>http://qinhongwei.com/academic/projects/visualization/examples/stackedArea.html</loc>
-    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/d3/Hongwei_test/d3.js%20gauges.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -152,6 +167,16 @@
   </url>
   
   <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/donut/index.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/Donut-interactive-frequency-product/donut.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://qinhongwei.com/academic/projects/visualization/examples/multiBarHorizontalChart.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
@@ -163,16 +188,6 @@
   
   <url>
     <loc>http://qinhongwei.com/academic/projects/visualization/examples/lineWithFocusChart.html</loc>
-    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/d3/Donut-interactive-frequency-product/donut.html</loc>
-    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/d3/test_array2csv.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -202,22 +217,7 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/examples/index.html</loc>
-    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/examples/line.html</loc>
-    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/examples/horizon.html</loc>
-    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/d3/test_csv2array.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/test_array2csv.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -232,7 +232,7 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/examples/historicalBarChart.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/index.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -257,12 +257,12 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/examples/cumulativeLineChart.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/line.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/stackedchart2.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/test_csv2array.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -337,7 +337,7 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/examples/indentedtree.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/stackedchart2.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -347,7 +347,7 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/donut/index.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/horizon.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -468,6 +468,21 @@
   
   <url>
     <loc>http://qinhongwei.com/academic/projects/visualization/examples/crossfilterWithTables.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/indentedtree.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/cumulativeLineChart.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/historicalBarChart.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   

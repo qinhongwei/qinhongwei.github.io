@@ -2,11 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Netscope</title>
+	<meta name="description" content="Netscope Visualization Tool for Convolutional Neural Networks">
+	<meta name="keywords" content="netscope, CNN, visualization, tool, neural network, convnet, graph, deep learning">
+	<meta name="autho" content="dgschwend">
+    <title>Netscope CNN Analyzer</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/tooltip.css">
     <link rel="stylesheet" href="assets/css/codemirror.css">
     <link rel="stylesheet" href="assets/css/netscope.css">
+    <link rel="stylesheet" href="assets/css/tablesorter.css">
     <script src="assets/js/lib/lodash.min.js"></script>
     <script src="assets/js/lib/jquery.min.js"></script>
     <script src="assets/js/lib/jquery.qtip.min.js"></script>
@@ -30,6 +34,11 @@
                 <h1 id="net-title"></h1>
                 <svg id="net-svg"></svg>
             </div>
+        </div>
+        <div id="table-container">
+			<h2 id="table-header">Network Analysis</h2>
+			<div id="table-content">
+			</div>
         </div>
     </div>
 </div>
