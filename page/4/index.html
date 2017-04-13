@@ -86,6 +86,71 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/01/15/ubuntu-desktop-reboot/" title="ubuntu 14.04.1 桌面无法启动" itemprop="url">ubuntu 14.04.1 桌面无法启动</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://qinhongwei.com/academic" title="Hongwei Qin" target="_blank" itemprop="author">Hongwei Qin</a>
+		
+  <p class="article-time">
+    <time datetime="2015-01-15T11:50:33.000Z" itemprop="datePublished"> Published Jan 15 2015</time>
+	 Updated:<time datetime="2016-06-16T15:45:21.000Z" itemprop="dateModified">Jun 16 2016</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="ubuntu_14-04-1 桌面无法启动的解决方案">ubuntu 14.04.1 桌面无法启动的解决方案 </h2>
+<p> 用 ssh 或者 tty 进入 terminal 执行 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">cd</span> /etc/X11</div><div class="line">&gt; <span class="built_in">sudo</span> cp xorg.conf.failsafe xorg.conf</div><div class="line">&gt; <span class="built_in">sudo</span> shutdown -r <span class="number">0</span></div></pre></td></tr></table></figure>
+
+<p> 如果还不行，先进入 windows，重启再尝试进入 Ubuntu（windows server 2012 和 Ubuntu 双系统）</p>
+<h2 id="无法 reboot 的解决方案"> 无法 reboot 的解决方案 </h2>
+<p> 桌面无法启动，只能 reboot，结果 reboot 一直关不掉，halt 也关不掉。这是 ubuntu 14.04 的一个 bug，可能的解决方案如下：</p>
+<blockquote>
+<p><a href="http://askubuntu.com/questions/462560/ubuntu-14-04-wont-shutdown-or-reboot" target="_blank" rel="external">http://askubuntu.com/questions/462560/ubuntu-14-04-wont-shutdown-or-reboot</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">sudo</span> shutdown -r <span class="number">0</span></div></pre></td></tr></table></figure>
+
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/01/15/ubuntu-desktop-reboot/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2014/12/31/2014Summarization/" title="2014年终总结" itemprop="url">2014年终总结</a>
   </h1>
   <p class="article-author">By
@@ -745,76 +810,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/11/03/foods-that-deserve-to-try-in-Singapore/" title="foods that deserve to try in Singapore" itemprop="url">foods that deserve to try in Singapore</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://qinhongwei.com/academic" title="Hongwei Qin" target="_blank" itemprop="author">Hongwei Qin</a>
-		
-  <p class="article-time">
-    <time datetime="2014-11-03T04:15:09.000Z" itemprop="datePublished"> Published Nov 3 2014</time>
-	 Updated:<time datetime="2016-06-16T15:45:21.000Z" itemprop="dateModified">Jun 16 2016</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>Food Recommendation by ACCV Programme Chairs</strong><br>The following is a list of some well-known Singapore dishes that are worth trying.<br><strong>Laksa</strong><br>A spicy noodle coconut-based soup with a mixture of Chinese and Malay style.<br><img src="http://www.comp.nus.edu.sg/~brown/accv2014/img/Laksa.jpg" alt="Laksa"></p>
-<p><strong>Chicken Rice</strong><br>A simple dish of chicken served with specially prepared rice. Don’t underestimate the simplicity of this dish, as it is full of flavor when you taste it.<br><img src="http://www.comp.nus.edu.sg/~brown/accv2014/img/Hainanese%20Chicken.jpg" alt="Chicken Rice"></p>
-<p><strong>Chilli Crab</strong><br>Crab with a sweet and savoury chilli source. It is usually served with some Chinese bread (called Mantou - man-toe) for dipping in the sauce. Price of crabs can be a little expensive, do enquire the price (normally they are charged per kilogram) before ordering. That said, they are still definitely worth a try. Even renowned celebrity chef Gordon Ramsay loves them!<br><img src="http://www.comp.nus.edu.sg/~brown/accv2014/img/Chili%20Crab.jpg" alt="Chilli Crab"></p>
-<blockquote>
-<ol>
-<li>It is not really that spicy.</li>
-<li>According to Wikipedia, it is ranked #35 on the World’s 50 most delicious food by CNN in 2011.</li>
-</ol>
-</blockquote>
-<p><strong>Prata</strong><br>An Indian style fried pancake served with vegetable or fish based curry (don’t be shy if it says fish-head curry — this is one of the most common types and is very good). Prata shops generally serve a variety of pratas with different fillings, e.g. egg prata, mushroom prata, and so on. Egg and plain pratas are the most common.<br><img src="http://www.comp.nus.edu.sg/~brown/accv2014/img/prata.jpg" alt="Prata"></p>
-<p><strong>Kaya Toast</strong><br>Kaya toast is a very common breakfast food or afternoon snack in Singapore. Kaya is a type of spread made from eggs, sugar, coconut and pandan leaves. This is often served with coffee and two soft boiled eggs. It is often served by stalls/shops selling drinks.<br><img src="http://www.comp.nus.edu.sg/~brown/accv2014/img/Kaya%20Toast.jpg" alt="Kaya Toast"></p>
-<p><strong>Bak Kut Teh</strong><br>The name literally translates as “meat bone tea”, and at its simplest, consists of meaty pork ribs simmered in a complex broth of herbs and spices (including star anise, cinnamon, cloves, fennel seeds and garlic) for hours. This dish is normally served with rice and goes very well with side dishes like you tiao (fried dough) and steamed peanuts.<br><img src="http://www.comp.nus.edu.sg/~brown/accv2014/img/bkt.jpg" alt="Bak Kut Teh"></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/food/">food</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2014/11/03/foods-that-deserve-to-try-in-Singapore/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="../3"><span></span>Prev</a><a class="page-number" href="../..">1</a><a class="page-number" href="../2">2</a><a class="page-number" href="../3">3</a><span class="page-number current">4</span><a class="page-number" href="../5">5</a><a class="extend next" rel="next" href="../5">Next<span></span></a>
@@ -862,11 +857,11 @@
 			
 		
 			
-				<li><a href="/tags/paper/" title="paper">paper<sup>4</sup></a></li>
+				<li><a href="/tags/outdoor/" title="outdoor">outdoor<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/outdoor/" title="outdoor">outdoor<sup>3</sup></a></li>
+				<li><a href="/tags/paper/" title="paper">paper<sup>4</sup></a></li>
 			
 		
 			
@@ -929,7 +924,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">Tag Cloud</p>
     <div class="tagcloudlist clearfix">
-       <a href="../../tags/academic" style="font-size: 10.00px;">academic</a><a href="../../tags/conference" style="font-size: 12.00px;">conference</a><a href="../../tags/deeplearning" style="font-size: 10.00px;">deeplearning</a><a href="../../tags/devices" style="font-size: 10.00px;">devices</a><a href="../../tags/food" style="font-size: 10.00px;">food</a><a href="../../tags/interview" style="font-size: 10.00px;">interview</a><a href="../../tags/learning" style="font-size: 10.00px;">learning</a><a href="../../tags/life" style="font-size: 12.00px;">life</a><a href="../../tags/movie" style="font-size: 10.00px;">movie</a><a href="../../tags/outdoor" style="font-size: 14.00px;">outdoor</a><a href="../../tags/paper" style="font-size: 16.00px;">paper</a><a href="../../tags/phd" style="font-size: 10.00px;">phd</a><a href="../../tags/tech" style="font-size: 20.00px;">tech</a><a href="../../tags/test" style="font-size: 10.00px;">test</a><a href="../../tags/trick" style="font-size: 10.00px;">trick</a><a href="../../tags/tricks" style="font-size: 10.00px;">tricks</a><a href="../../tags/思考" style="font-size: 18.00px;">思考</a>
+       <a href="../../tags/academic" style="font-size: 10.00px;">academic</a><a href="../../tags/conference" style="font-size: 12.50px;">conference</a><a href="../../tags/deeplearning" style="font-size: 10.00px;">deeplearning</a><a href="../../tags/devices" style="font-size: 10.00px;">devices</a><a href="../../tags/food" style="font-size: 10.00px;">food</a><a href="../../tags/interview" style="font-size: 10.00px;">interview</a><a href="../../tags/learning" style="font-size: 10.00px;">learning</a><a href="../../tags/life" style="font-size: 12.50px;">life</a><a href="../../tags/movie" style="font-size: 10.00px;">movie</a><a href="../../tags/outdoor" style="font-size: 15.00px;">outdoor</a><a href="../../tags/paper" style="font-size: 15.00px;">paper</a><a href="../../tags/phd" style="font-size: 10.00px;">phd</a><a href="../../tags/tech" style="font-size: 20.00px;">tech</a><a href="../../tags/test" style="font-size: 10.00px;">test</a><a href="../../tags/trick" style="font-size: 10.00px;">trick</a><a href="../../tags/tricks" style="font-size: 10.00px;">tricks</a><a href="../../tags/思考" style="font-size: 17.50px;">思考</a>
     </div>
   </div>
 
