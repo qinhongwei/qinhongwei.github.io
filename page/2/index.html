@@ -86,6 +86,128 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/08/how-to-install-caffe-on-NVIDIA-TX1/" title="How to install caffe on NVIDIA TX1" itemprop="url">How to install caffe on NVIDIA TX1</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://qinhongwei.com/academic" title="Hongwei Qin" target="_blank" itemprop="author">Hongwei Qin</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-08T06:25:51.000Z" itemprop="datePublished"> Published May 8 2016</time>
+	 Updated:<time datetime="2016-06-16T15:45:21.000Z" itemprop="dateModified">Jun 16 2016</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>Now you’ve get your new toy from the delivery man. Unbox your Jetson TX1 and attach a monitor and a keyboard.<br>You will see that your TX1 comes with Ubuntu 14.04.<br>Default Username and Passwd are: <code>ubuntu</code> and <code>ubuntu</code>.</p>
+<ul>
+<li>Install the package that comes with your TX1 in <code>~</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> NVIDIA-INSTALLER/installer.sh</div><div class="line"><span class="built_in">sudo</span> reboot</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Download and install cuda for TX1</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> dpkg -i cuda-repo<span class="operator">-l</span>4t-r23.<span class="number">1</span>-<span class="number">7</span>-<span class="number">0</span>-local_7.<span class="number">0</span>-<span class="number">71</span>_armhf.deb</div><div class="line"><span class="built_in">sudo</span> apt-get install cuda-toolkit-<span class="number">7</span>-<span class="number">0</span></div><div class="line"><span class="built_in">sudo</span> usermod <span class="operator">-a</span> -G video <span class="variable">$USER</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"# Add CUDA bin & library paths:"</span> &gt;&gt; ~/.bashrc</div><div class="line"><span class="built_in">echo</span> <span class="string">"export PATH=/usr/local/cuda/bin:<span class="variable">$PATH</span>"</span> &gt;&gt; ~/.bashrc</div><div class="line"><span class="built_in">echo</span> <span class="string">"export LD_LIBRARY_PATH=/usr/local/cuda/lib:<span class="variable">$LD_LIBRARY_PATH</span>"</span> &gt;&gt; ~/.bashrc</div><div class="line"><span class="built_in">source</span> ~/.bashrc</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>If everything’s installed correctly, running ‘nvcc -V’ should give you a compiler version message.</p>
+</blockquote>
+<ul>
+<li>Download and install opencv for TX1</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> dpkg -i libopencv4tegra-repo_2.<span class="number">4.12</span>.<span class="number">3</span>_armhf_l4t-r23.deb</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Download and install cudnn for TX1<br>cudnn-7.0-linux-armv7-v3.0-prod.tgz</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">tar</span> -xvf cudnn-<span class="number">7</span>.<span class="number">0</span>-linux-armv7-v3.<span class="number">0</span>-prod.tgz</div></pre></td></tr></table></figure>
+
+<p>The files are in <code>./cuda</code> now. Then copy the cudnn files into cuda path.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> cuda</div><div class="line">sudo <span class="keyword">cp</span> include/cudnn.<span class="keyword">h</span> /usr/local/cuda/include/</div><div class="line">sudo <span class="keyword">cp</span> lib/* /usr/local/cuda/lib/</div><div class="line"><span class="keyword">cd</span> /usr/local/cuda/lib/</div><div class="line"><span class="keyword">ln</span> -fs libcudnn.<span class="keyword">so</span>.<span class="number">7.0</span>.<span class="number">64</span> libcudnn.<span class="keyword">so</span>.<span class="number">7.0</span></div><div class="line"><span class="keyword">ln</span> -fs libcudnn.<span class="keyword">so</span>.<span class="number">7.0</span> libcudnn.<span class="keyword">so</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>Install caffe dependencies</li>
+</ul>
+<blockquote>
+<p>This part is mostly the same with Caffe official installation guide for Ubuntu 14.04, except the <code>opencv</code>. You should be safe with the following guide, if not, please refer to <a href="http://caffe.berkeleyvision.org/install_apt.html" target="_blank" rel="external">Caffe official installation guide</a></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo <span class="built_in">add</span>-apt-repository universe</div><div class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></div><div class="line">sudo apt-<span class="built_in">get</span> install libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-<span class="keyword">compiler</span></div><div class="line">sudo apt-<span class="built_in">get</span> install --<span class="keyword">no</span>-install-recommends libboost-<span class="keyword">all</span>-dev</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Install atlas as blas</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install libatlas-<span class="keyword">base</span>-dev</div></pre></td></tr></table></figure>
+
+<p>or install OpenBLAS or MKL for better CPU performance.</p>
+<ul>
+<li>Install remain dependencies in ubuntu 14.04</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Install caffe</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> install -<span class="keyword">y</span> git</div><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/BVLC/caffe.git</div><div class="line"><span class="keyword">cd</span> caffe</div><div class="line"><span class="keyword">cp</span> Makefile.config.example Makefile.config</div></pre></td></tr></table></figure>
+
+<p>now compile caffe, remember Do NOT use all the cores by <code>make all -j</code>, or it hangs the system. Instead use the following.  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">make</span> -<span class="keyword">j</span> <span class="number">3</span> <span class="keyword">all</span></div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># just <span class="keyword">to</span> <span class="keyword">make</span> sure everything <span class="keyword">is</span> fine, leave this <span class="keyword">if</span> you are in <span class="keyword">a</span> rush</div><div class="line"><span class="keyword">make</span> -<span class="keyword">j</span> <span class="number">3</span> runtest</div></pre></td></tr></table></figure>
+
+<p>Finally you can run Caffe’s benchmarking code to measure the GPU performance.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">build/tools/caffe</span> <span class="comment">time</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">model=models/bvlc_alexnet/deploy</span><span class="string">.</span><span class="comment">prototxt</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">gpu=0</span></div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>you may run into error: libcudart.so.7.0: cannot open shared object file: No such file or directory, to solve this, execute<br><code>sudo ldconfig /usr/local/cuda/lib</code></p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tech/">tech</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/05/08/how-to-install-caffe-on-NVIDIA-TX1/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/06/get-your-free-domain-and-vps-through-github/" title="通过Github装梯子/建站" itemprop="url">通过Github装梯子/建站</a>
   </h1>
   <p class="article-author">By
@@ -745,65 +867,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/06/memory-of-the-green/" title="绿色的记忆" itemprop="url">绿色的记忆</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://qinhongwei.com/academic" title="Hongwei Qin" target="_blank" itemprop="author">Hongwei Qin</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-06T15:32:43.000Z" itemprop="datePublished"> Published Jul 6 2015</time>
-	 Updated:<time datetime="2016-06-16T15:45:21.000Z" itemprop="dateModified">Jun 16 2016</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p> 最近偶尔会听到窗外一二三四的喊口号的声音，估计是科技园的某家奇葩公司的公司文化：走正步，喊口号，站军姿。<br> 然而，这一二三四的声音还真是有力，我一听到，脑子里就会浮现出嘹亮的军歌、胖胖的教官、馒头和咸菜。<br> 青少年时代的记忆多半都在会出汗的季节，初中、高中、大学，懵懂地从一个自己最熟悉的地方走近一个最陌生的地方。初中重点班，高中重点班，后来去清华念书，少年时代就这样越来越快地过去。到了现在，与学校时而很近，时而很远。内心里早已不把自己当成学生。<br> 成年是什么样的呢?<br> 一定不是 18 岁的样子，那是 25 岁的样子，还是 30 岁的样子？</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/life/">life</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/07/06/memory-of-the-green/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="../.."><span></span>Prev</a><a class="page-number" href="../..">1</a><span class="page-number current">2</span><a class="page-number" href="../3">3</a><a class="page-number" href="../4">4</a><a class="page-number" href="../5">5</a><a class="extend next" rel="next" href="../3">Next<span></span></a>
@@ -1057,7 +1120,7 @@
 		<a href="mailto:qhw12@mails.tsinghua.edu.cn" target="_blank" class="icon-email" title="Email Me"></a>
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
 		
 		<a href="http://qinhongwei.com/about" target="_blank" title="Hongwei Qin">Hongwei Qin</a>
 		

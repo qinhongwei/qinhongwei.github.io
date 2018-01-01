@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qinhongwei.com/2018/01/01/2017review/</loc>
+    <lastmod>2018-01-01T12:00:21.077Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://qinhongwei.com/academic/index.html</loc>
     <lastmod>2017-12-19T09:53:15.863Z</lastmod>
   </url>
@@ -72,11 +77,6 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/d3/tag.html</loc>
-    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://qinhongwei.com/academic/projects/visualization/d3/gauge_readfromjson.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
@@ -97,7 +97,7 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/donut/index.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/title.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -227,6 +227,11 @@
   </url>
   
   <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/foundation-icons/preview.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://qinhongwei.com/Messages/index.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
@@ -267,7 +272,7 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/foundation-icons/preview.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/tag.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -347,12 +352,12 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/title.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/examples/line.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/examples/line.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/donut/index.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
