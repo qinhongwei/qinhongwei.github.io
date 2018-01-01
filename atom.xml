@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Share with the World]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://qinhongwei.com/"/>
-  <updated>2018-01-01T12:00:32.086Z</updated>
+  <updated>2018-01-01T12:19:48.557Z</updated>
   <id>http://qinhongwei.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://qinhongwei.com/2018/01/01/2017review/"/>
     <id>http://qinhongwei.com/2018/01/01/2017review/</id>
     <published>2018-01-01T11:55:21.000Z</published>
-    <updated>2018-01-01T12:00:21.077Z</updated>
+    <updated>2018-01-01T12:19:42.901Z</updated>
     <content type="html"><![CDATA[<p>2017 年飞快地过去了，这一年的生活经历了巨大的改变。年轻人总是这样，生活是不可预测的，则充满乐趣。</p>
 <h2 id="学业"> 学业 </h2>
 <h3 id="博士毕业"> 博士毕业 </h3>
@@ -64,6 +64,7 @@
 <li> 带爸妈去一趟大草原 </li>
 <li> 完成一次英语演讲 </li>
 </ol>
+<p> 很多人问题我的团队在做的事情，团队名字叫前端计算（有的叫边缘计算），这里的前端是相对服务器后端而言的。在深度学习算法比较慢的时候，必须跑在服务器上。但随着神经网络加速技术发展、专用芯片和通用芯片的计算能力提升、隐私和处理速度需求、数据中心成本限制，深度学习的计算需要放在设备上进行，这就是前端计算。这里的挑战非常大，需要算法又快又好，还要与设备深度配合。算法方面，我们覆盖大规模视频理解和深度学习相关的基础技术。我们一直在招人，全职和实习都可，我的邮箱是“姓名全拼 @公司域名”。希望你踏实勤奋，coding 能力强，喜欢做研究或者做算法到产品的转换。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>2017 年飞快地过去了，这一年的生活经历了巨大的改变。年轻人总是这样，生活是不可预测的，则充满乐趣。</p>
