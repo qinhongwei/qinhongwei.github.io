@@ -2,13 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://qinhongwei.com/2018/01/01/2017review/</loc>
-    <lastmod>2018-01-01T12:32:05.865Z</lastmod>
+    <loc>http://qinhongwei.com/academic/index.html</loc>
+    <lastmod>2018-07-10T07:20:49.971Z</lastmod>
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/index.html</loc>
-    <lastmod>2017-12-19T09:53:15.863Z</lastmod>
+    <loc>http://qinhongwei.com/2018/06/24/why-you-should-learn-some-machine-learning/</loc>
+    <lastmod>2018-06-24T09:55:36.009Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://qinhongwei.com/2018/01/01/2017review/</loc>
+    <lastmod>2018-01-01T12:32:05.865Z</lastmod>
   </url>
   
   <url>
@@ -78,11 +83,6 @@
   
   <url>
     <loc>http://qinhongwei.com/academic/projects/visualization/donut/index.html</loc>
-    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/d3/gauge_readfromjson.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
@@ -232,6 +232,11 @@
   </url>
   
   <url>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/tag.html</loc>
+    <lastmod>2016-06-16T15:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://qinhongwei.com/categories/index.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
@@ -267,7 +272,7 @@
   </url>
   
   <url>
-    <loc>http://qinhongwei.com/academic/projects/visualization/d3/tag.html</loc>
+    <loc>http://qinhongwei.com/academic/projects/visualization/d3/gauge_readfromjson.html</loc>
     <lastmod>2016-06-16T15:45:22.000Z</lastmod>
   </url>
   
