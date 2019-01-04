@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Share with the World]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://qinhongwei.com/"/>
-  <updated>2019-01-04T13:31:23.347Z</updated>
+  <updated>2019-01-04T13:46:56.856Z</updated>
   <id>http://qinhongwei.com/</id>
   
   <author>
@@ -15,14 +15,12 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[]]></title>
+    <title><![CDATA[为什么人人都应该学一点机器学习]]></title>
     <link href="http://qinhongwei.com/2018/06/24/why-you-should-learn-some-machine-learning/"/>
     <id>http://qinhongwei.com/2018/06/24/why-you-should-learn-some-machine-learning/</id>
-    <published>2018-06-24T09:55:36.009Z</published>
-    <updated>2018-06-24T09:55:36.009Z</updated>
-    <content type="html"><![CDATA[<p>title: why you should learn some machine learning<br>date: 2018-06-24 13:09:47<br>categories:<br>tags:</p>
-<h2 id="toc">toc</h2>
-<h3 id="选专业很随机的"> 选专业很随机的 </h3>
+    <published>2018-06-24T05:09:47.000Z</published>
+    <updated>2019-01-04T13:46:31.933Z</updated>
+    <content type="html"><![CDATA[<h3 id="选专业很随机的"> 选专业很随机的 </h3>
 <p> 一早起来看到老乡群里讨论 702 分的市探花，想起红博士十年前高考的小故事，有些戏剧性。没有多少事情能经历一年的考验，何况十年，十年过去，都是过眼云烟了。</p>
 <p> 红博士有个特点，高考写作文会手抖。写语文作文手抖，写英文作文也手抖。虽然他留下了 70 分钟的时间写英文作文，还是手抖。红博士写英文作文会先在草稿纸上写好，再誊抄到答题纸上，誊抄的时候会手抖。这一抖，英文作文就从平时的接近满分减 10 分，好在红博士答对了所有客观题。语文作文手一抖，也是比常规得分低了十几分。好在那年的数学和理综稍微有些难度，红博士还是保持了足够的优势，只比省状元低了十分左右。对答案估分的时候，发现一个神奇的规律，那年的英文选择题答案，全部都符合 ABCD 的规律，每 4 题都是一个 ABCD 的顺序调整，命题小组真是太任性了。</p>
 <p> 估分后高中老师带着我们，驱车到郑州找到招生组下榻的酒店，招生组组长听完我的估分和志愿情况，说除了建筑和经管以外的专业基本没有问题。如今的清华招生办主任，在当年还是河南省的招生组组长。当年的红博士被奇怪的风气洗脑，一心想着建筑相关的专业，再不行就学信息类专业，自知不能选建筑，于是把土木工程放在了第一志愿，后面几个志愿填上计算机电子自动化等等。招生组的另外一位老师，我到清华自动化报到后又见到了，不免猜测是不是这个老师把我丢进了自动化系，不然为什么不是计算机和电子。。。又过了几年，认识了更多的人，还发现一堆复杂交错的渊源，世界真是太小了。</p>
@@ -47,9 +45,9 @@
 <p> 加入造轮子行业的最好时机是十年前，其次是现在。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>title: why you should learn some machine learning<br>date: 2018-06-24 13:09:47<br>categories:<br>tags:</p>
-<h2 id="toc">toc</h2>
-<h3 id="]]>
+    <![CDATA[<h3 id="选专业很随机的"> 选专业很随机的 </h3>
+<p> 一早起来看到老乡群里讨论 702 分的市探花，想起红博士十年前高考的小故事，有些戏剧性。没有多少事情能经历一年的考验，何况十年，十年过去，都是过眼云烟了。</p>
+<p> 红博士有个特点，高考写作文会手抖。写]]>
     </summary>
     
   </entry>
